@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="">
+
+  <title>jQuery zoetrope</title>
+  
+  <style type="text/css">
+    .zoetrope { position: relative; overflow: hidden; background: gray; }
+    .zoetrope img { position: absolute; left: 0; top: 0; }
+  </style>
+  
+  <script src="http://www.google.com/jsapi?key="></script>
+  <script type="text/javascript">
+    google.load("jquery", "1.6");
+  </script>
+  <script src="jquery-zoetrope.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    $(function(){
+      $(".zoetrope").zoetrope({
+        "path"          : "sprite.png"
+      , "frame_width"   : 40
+      , "frame_height"  : 50
+      , "speed"         : 100
+      , "loop"          : true
+      , "clb_cycle"     : function(){
+                            //console.log("cycle");
+                          }
+      , "clb_done"      : function(){
+                            //console.log("done");
+                          }
+      });
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="zoetrope">
+
+</div>
+
+</body>
+</html>
