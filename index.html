@@ -17,21 +17,19 @@
   </script>
   <script src="jquery-zoetrope.js" type="text/javascript" charset="utf-8"></script>
   <script>
-    $(function(){
+    window.onload = function(){
       $(".zoetrope").zoetrope({
-        "path"          : "sprite.png"
-      , "frame_width"   : 40
-      , "frame_height"  : 50
-      , "speed"         : 100
+        "path"          : "sprite.jpg"
+      , "orientation"   : "vertical"
+      , "frame_width"   : 343 * 2
+      , "frame_height"  : 240 * 2
+      , "speed"         : 40
       , "loop"          : true
       , "clb_cycle"     : function(){
-                            //console.log("cycle");
-                          }
-      , "clb_done"      : function(){
-                            //console.log("done");
+                            console.log("cycle");
                           }
       });
-    });
+    };
   </script>
 
 </head>
