@@ -97,13 +97,7 @@
         $img.css(prop, z);
 
     }, opts.speed);
-    //
-    //if (opts.loop === false) {
-    //  setTimeout(function(){
-    //    clearInterval($this.interval);
-    //    _clb.call($this, opts.clb_done);
-    //  }, (opts.speed * $this.steps));
-    //}
+
   };
   
   
