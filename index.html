@@ -21,12 +21,15 @@
       $(".zoetrope").zoetrope({
         "path"          : "sprite.jpg"
       , "orientation"   : "vertical"
-      , "frame_width"   : 343 * 2
-      , "frame_height"  : 240 * 2
+      , "frame_width"   : 343
+      , "frame_height"  : 240
       , "speed"         : 40
       , "loop"          : true
       , "clb_cycle"     : function(){
                             //console.log("cycle");
+                          }
+      , "clb_start"     : function(){
+                            console.log("start");
                           }
       });
     };

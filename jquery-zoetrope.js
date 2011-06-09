@@ -20,10 +20,11 @@
     $this.css({
       width: opts.frame_width
     , height: opts.frame_height
-    })
+    });
     
     $.when(_loadImage.call($this, opts))
      .then(function(){
+       _clb.call($this, opts.clb_start);
        _setSteps.call($this, opts);
        _animate.call($this, opts);
      });
@@ -48,13 +49,14 @@
   
   
   _setSteps = function(opts){
-    var $img = $("img", this)[0];
-    var scale = opts.frame_width / $img.width;
-    var w = $img.width;
-    var h = $img.height;
+    var $img  = $("img", this)[0]
+    ,   scale = opts.frame_width / $img.width
+    ,   w     = $img.width
+    ,   h     = $img.height
+    ;
     
-    $img.width  = w * scale;
-    $img.height = h * scale ;
+    $img.width  = Math.ceil(w * scale);
+    $img.height = Math.ceil(h * scale);
     
     if (opts.orientation == "vertical") {
       this.steps = Math.floor($img.height / opts.frame_height);
@@ -74,15 +76,15 @@
     
     if (opts.orientation == "vertical") {
       prop          = "top";
-      step_distance = opts.frame_height;
+      step_distance = $img[0].height / this.steps;
     } else {
       prop          = "left";
-      step_distance = opts.frame_width;
+      step_distance = $img[0].width / this.steps;
     }
     
     $this.interval = setInterval(function(){
-        
-        var z = parseInt($img.css(prop), 10) - step_distance;
+        var s = Math.floor(parseInt($img.css(prop), 10) / step_distance);
+        var z = (s * step_distance) - step_distance;
         
         if (z <= -(step_distance * $this.steps)) {
           if (opts.loop === false) {
@@ -128,7 +130,7 @@
   , "speed"       : 100
   , "loop"        : true
   , "clb_cycle"   : undefined
-  , "clb_done"    : undefined
+  , "clb_start"   : undefined
   };
   
   
