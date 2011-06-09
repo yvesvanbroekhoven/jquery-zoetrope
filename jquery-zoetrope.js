@@ -2,6 +2,7 @@
  * jQuery zoetrope
  * Author: Yves Van Broekhoven
  * Created at: 2011-06-08
+ * Version: 1.0.0
  */
  
 (function($){

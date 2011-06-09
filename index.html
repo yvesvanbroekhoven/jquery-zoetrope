@@ -24,7 +24,6 @@
       , "frame_width"   : 343
       , "frame_height"  : 240
       , "speed"         : 40
-      , "loop"          : true
       , "clb_cycle"     : function(){
                             //console.log("cycle");
                           }
@@ -38,8 +37,16 @@
       , "orientation"   : "vertical"
       , "frame_width"   : 100
       , "frame_height"  : 100
-      , "speed"         : 40
+      , "speed"         : 100
       , "loop"          : true
+      });
+      
+      $(".colors").zoetrope({
+        "path"          : "sprite-colors.jpg"
+      , "orientation"   : "vertical"
+      , "frame_width"   : 300
+      , "frame_height"  : 200
+      , "speed"         : 200
       });
     });
   </script>
@@ -51,6 +58,9 @@
 
 </div>
 <div class="loader zoetrope">
+
+</div>
+<div class="colors zoetrope">
 
 </div>
 
