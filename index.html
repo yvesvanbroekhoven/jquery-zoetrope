@@ -17,8 +17,8 @@
   </script>
   <script src="jquery-zoetrope.js" type="text/javascript" charset="utf-8"></script>
   <script>
-    window.onload = function(){
-      $(".zoetrope").zoetrope({
+    $(function(){
+      $(".movie").zoetrope({
         "path"          : "sprite.jpg"
       , "orientation"   : "vertical"
       , "frame_width"   : 343
@@ -32,13 +32,25 @@
                             console.log("start");
                           }
       });
-    };
+      
+      $(".loader").zoetrope({
+        "path"          : "sprite-loader.jpg"
+      , "orientation"   : "vertical"
+      , "frame_width"   : 100
+      , "frame_height"  : 100
+      , "speed"         : 40
+      , "loop"          : true
+      });
+    });
   </script>
 
 </head>
 <body>
 
-<div class="zoetrope">
+<div class="movie zoetrope">
+
+</div>
+<div class="loader zoetrope">
 
 </div>
 
