@@ -48,12 +48,16 @@
       , "frame_height"  : 200
       , "speed"         : 200
       });
+      
+      $("a").click(function(){
+        $.fn.zoetrope.kill();
+      });
     });
   </script>
 
 </head>
 <body>
-
+<a href="#">Stop</a>
 <div class="movie zoetrope">
 
 </div>

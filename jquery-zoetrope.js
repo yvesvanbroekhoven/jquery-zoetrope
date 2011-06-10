@@ -12,6 +12,7 @@
   ,   _setSteps
   ,   _animate
   ,   _clb
+  ,   _kill
   ;
   
   
@@ -100,14 +101,23 @@
         $img.css(prop, z);
 
     }, opts.speed);
-
+    $this.data("interval", $this.interval);
   };
+  
+  
   
   
   _clb = function(clb){
     if ($.isFunction(clb)) {
       clb.call(this);
     }
+  };
+  
+  
+  _kill = function(){
+    $(".zoetrope").each(function(){
+      clearInterval($(this).data("interval"));
+    });
   };
   
   
@@ -120,6 +130,10 @@
       _init.call($(this), opts);
     });
     
+  };
+  
+  $.fn.zoetrope.kill = function(){
+    _kill();
   };
   
   
