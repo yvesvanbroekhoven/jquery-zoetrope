@@ -56,9 +56,10 @@
     ,   w     = $img.width
     ,   h     = $img.height
     ;
-    
+
     $img.width  = Math.ceil(w * scale);
     $img.height = Math.ceil(h * scale);
+    
     
     if (opts.orientation == "vertical") {
       this.steps = Math.floor($img.height / opts.frame_height);
