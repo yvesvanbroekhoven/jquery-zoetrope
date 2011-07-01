@@ -7,8 +7,10 @@
   <title>jQuery zoetrope</title>
   
   <style type="text/css">
-    .zoetrope { position: relative; overflow: hidden; background: gray; }
+    .zoetrope { display: block; position: relative; overflow: hidden; }
     .zoetrope img { position: absolute; left: 0; top: 0; }
+    
+    button { position: relative; -moz-box-sizing: content-box; border: none; background: rgb(100,200,300); padding: 5px 5px 5px 20px; cursor: pointer; }
   </style>
   
   <script src="http://www.google.com/jsapi?key="></script>
@@ -61,6 +63,28 @@
       $("a").click(function(){
         $.fn.zoetrope.kill();
       });
+      
+      $("button").click(function(event){
+        event.preventDefault();
+        if (!$(this).data("loader")) {
+          var $loader = $("<span>").addClass("loader zoetrope").css("position","absolute");
+          $loader.offset({
+            "left": $(this).offset().left + 5,
+            "top": $(this).offset().top + 5,
+          })
+          $("body").append($loader);
+          $loader.zoetrope({
+            "path"          : "preloader.png"
+          , "orientation"   : "vertical"
+          , "frame_width"   : 16
+          , "frame_height"  : 16
+          , "speed"         : 60
+          , "loop"          : true
+          });
+        }
+        
+        $(this).data("loader", $loader);
+      });
     });
   </script>
 
@@ -78,6 +102,12 @@
 </div>
 
 <div class="micro-loader zoetrope"></div>
+
+<br>
+<br>
+
+<button>Click me</button>
+
 
 </body>
 </html>
